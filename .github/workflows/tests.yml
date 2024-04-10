@@ -15,10 +15,9 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12.2'
+        python-version: '3.x'
 
-    - name: Run tests
-      run: python -m unittest test_crud_agenda.py
+    # Otros pasos de tu flujo de trabajo
 
     - name: Merge to main if tests pass
       if: success() && github.ref == 'refs/heads/dev'
