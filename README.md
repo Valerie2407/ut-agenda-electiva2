@@ -1,1 +1,3 @@
-# ut-agenda-electiva2
+# Pruebas unitarias a una agenda sencilla
+
+Valerie Lantigua 2021-1709
