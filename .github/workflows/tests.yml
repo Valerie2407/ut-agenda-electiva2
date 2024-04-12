@@ -1,0 +1,29 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    # Otros pasos de tu flujo de trabajo
+
+    - name: Merge to main if tests pass
+      if: success() && github.ref == 'refs/heads/dev'
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Merge to main"
+        branch: main
+        commit_user_name: "GitHub Actions"
+        commit_user_email: "actions@github.com"
